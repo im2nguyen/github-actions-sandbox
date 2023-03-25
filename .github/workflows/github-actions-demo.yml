@@ -30,6 +30,10 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
       - name: Get ticket labels
         run: |
-          echo ${{ "${{ contains(github.event.issue.labels.*.name, 'type/docs')" == "true" }}
+          echo ${{ contains(github.event.issue.labels.*.name, 'type/docs') }}
+      - name: Conditional passed
+        if: contains(github.event.issue.labels.*.name, 'type/docs')
+        run: |
+          echo ${{ contains(github.event.issue.labels.*.name, 'type/docs') }}
     env:
       GITHUB_CONTEXT: ${{ toJson(github.event) }}
