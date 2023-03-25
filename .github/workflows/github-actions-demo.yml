@@ -27,7 +27,9 @@ jobs:
       - name: Print ticket
         # if: github.event.action == 'opened'
         id: get-ticket-labels
-        run: echo ${{ github.event.issue }}
+        run: echo "${{ GITHUB_CONTEXT }}"
       - name: Get ticket labels
         run: |
           echo ${{ contains(github.event.issue.labels.*.name, 'type/docs') == 'true' }}
+    env:
+      GITHUB_CONTEXT: ${{ toJson(github.event) }}
