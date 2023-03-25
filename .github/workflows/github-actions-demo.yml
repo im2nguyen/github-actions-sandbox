@@ -32,7 +32,7 @@ jobs:
         run: |
           echo ${{ contains(github.event.issue.labels.*.name, 'type/docs') }}
       - name: Conditional passed
-        if: contains(github.event.issue.labels.*.name, 'type/docs')
+        if: contains(github.event.issue.labels.*.name, 'type/docs') && github.event.action == 'opened'
         run: |
           echo ${{ contains(github.event.issue.labels.*.name, 'type/docs') }}
     env:
