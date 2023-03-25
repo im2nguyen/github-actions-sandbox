@@ -25,4 +25,4 @@ jobs:
         run: echo "${{ github.event.issue }}"
       - name: Get ticket labels
         run: |
-          echo ${{ (contains(github.event.issue.labels.*.name, 'type/docs') == "true") }}
+          echo "${{ contains(github.event.issue.labels.*.name, 'type/docs') == "true" }}"
