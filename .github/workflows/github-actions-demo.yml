@@ -19,9 +19,10 @@ jobs:
   Get-Labels:
     runs-on: ubuntu-latest
     steps:
-      - name: Get ticket labels
+      - name: Print ticket
         # if: github.event.action == 'opened'
         id: get-ticket-labels
+        run: echo "${{ github.event.issue }}"
+      - name: Get ticket labels
         run: |
-          echo ${{ github.event.issue }}
           echo "${{ contains(github.event.issue.labels.*.name, 'type/docs') }}" == "true"
