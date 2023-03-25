@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get ticket labels
-        if: github.event.action == 'opened'
+        # if: github.event.action == 'opened'
         id: get-ticket-labels
         run: |
           echo ${{ github.event.issue }}
